@@ -3,9 +3,8 @@ import { Container, ListGroup, ListGroupItem, Button } from "reactstrap";
 
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-import uuid from "uuid";
 import { connect } from "react-redux";
-import { getItems } from "../actions/itemActions";
+import { getItems, deleteItem } from "../actions/itemActions";
 import PropTypes from "prop-types";
 
 class CartList extends Component {
@@ -13,25 +12,15 @@ class CartList extends Component {
     this.props.getItems();
   }
 
+  onDeleteClick = id => {
+      this.props.deleteItem(id);
+  };
+
   render() {
     const { items } = this.props.item;
 
     return (
       <Container>
-        <Button
-          color="dark"
-          style={{ marginBottom: "25px" }}
-          onClick={() => {
-            const name = prompt("Enter item");
-            if (name) {
-              this.setState(state => ({
-                items: [...state.items, { id: uuid(), name }]
-              }));
-            }
-          }}
-        >
-          Add Item
-        </Button>
         <ListGroup>
           <TransitionGroup className="cart-list">
             {items.map(({ id, name }) => (
@@ -41,11 +30,7 @@ class CartList extends Component {
                     className="remove-btn"
                     color="danger"
                     size="sm"
-                    onClick={() => {
-                      this.setState(state => ({
-                        items: state.items.filter(item => item.id !== id)
-                      }));
-                    }}
+                    onClick={this.onDeleteClick.bind(this, id)}
                   >
                     &times;
                   </Button>
@@ -71,5 +56,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getItems }
+  { getItems, deleteItem }
 )(CartList);
