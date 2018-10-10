@@ -4,8 +4,11 @@
   "description": "Simple shopping cart app. Add and delete from shopping list.",
   "main": "server.js",
   "scripts": {
+    "client-install": "yarn install --prefix client",
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "yarn --cwd client start",
+    "dev": "concurrently \"yarn run client\" \"yarn run server\""
   },
   "repository": "https://github.com/mlegrange15/reactCart2.0.git",
   "author": "Michael LeGrange <mlegrange15@att.net>",
