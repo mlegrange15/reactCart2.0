@@ -9,7 +9,7 @@
     "server": "nodemon server.js",
     "client": "yarn --cwd client start",
     "dev": "concurrently \"yarn run client\" \"yarn run server\"",
-    "heroku-postbuild": "YARN_PRODUCTION=false yarn install --prefix client && yarn run build --prefix client"
+    "heroku-postbuild": "YARN_PRODUCTION=false yarn install --cwd client && yarn run build --cwd client"
   },
   "repository": "https://github.com/mlegrange15/reactCart2.0.git",
   "author": "Michael LeGrange <mlegrange15@att.net>",
