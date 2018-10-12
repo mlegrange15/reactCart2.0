@@ -19,3 +19,12 @@
 .remove-btn {
     margin-right: 15px;
 }
+
+.navbar {
+    padding: 20px;
+}
+
+#navbrand {
+    font-size: 30px;
+    font-weight: 150;
+}

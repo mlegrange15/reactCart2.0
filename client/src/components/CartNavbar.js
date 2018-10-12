@@ -24,9 +24,9 @@ class CartNavbar extends Component {
   render() {
     return (
       <div>
-        <Navbar color="dark" dark expand="sm" className="mb-5">
+        <Navbar color="info" dark expand="sm" className="mb-5">
           <Container>
-            <NavbarBrand href="/">Shopping Cart</NavbarBrand>
+            <NavbarBrand href="/" id="navbrand">Shopping Cart</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar />
             <Nav className="ml-auto" navbar>
