@@ -12,8 +12,6 @@ import {
 import { connect } from "react-redux";
 import { addItem } from "../actions/itemActions";
 
-import uuid from "uuid";
-
 class CartModal extends Component {
   state = {
     modal: false,
@@ -33,7 +31,6 @@ class CartModal extends Component {
   onSubmit = event => {
     event.preventDefault();
     const newItem = {
-      id: uuid(),
       name: this.state.name
     };
     this.props.addItem(newItem);
