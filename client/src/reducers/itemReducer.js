@@ -5,11 +5,13 @@ import {
   ITEMS_LOADING
 } from "../actions/types";
 
+// sets an ititial redux state
 const initialState = {
   items: [],
   loading: false
 };
 
+// switch that takes in the actions and handles the state changes and updates
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_ITEMS:
